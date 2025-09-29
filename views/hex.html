@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexadecimal Encoder/Decoder - Ravn Decoder</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Hexadecimal Encoder/Decoder</h1>
+            <p>Convert text to hexadecimal and vice versa</p>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/rot13">Rot13</a></li>
+                <li class="nav-item"><a href="/binary">Binary</a></li>
+                <li class="nav-item"><a href="/base64">Base64</a></li>
+                <li class="nav-item"><a href="/hexadecimal">Hexadecimal</a></li>
+                <li class="nav-item"><a href="/url">Url</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="two-column">
+                <!-- Encode Section -->
+                <div class="section encode-section">
+                    <h2 class="section-title">🔢 Encode to Hexadecimal</h2>
+                    <form id="hexForm">
+                        <div class="form-group">
+                            <label for="hexValue">Enter text to encode:</label>
+                            <textarea id="hexValue" class="input-field" placeholder="Type your text here..." rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Encode</button>
+                    </form>
+                    <div id="hexencode" class="output-area"></div>
+                    <div id="hex-error" class="error-message" style="display: none;"></div>
+                </div>
+
+                <!-- Decode Section -->
+                <div class="section decode-section">
+                    <h2 class="section-title">🔓 Decode from Hexadecimal</h2>
+                    <form id="hexdeForm">
+                        <div class="form-group">
+                            <label for="hexdeValue">Enter hexadecimal to decode:</label>
+                            <textarea id="hexdeValue" class="input-field" placeholder="Paste hex string here..." rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Decode</button>
+                    </form>
+                    <div id="hexdecode" class="output-area"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/front.js"></script>
+</body>
+</html>

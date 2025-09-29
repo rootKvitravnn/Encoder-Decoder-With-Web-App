@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Encoder/Decoder - Ravn Decoder</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="binary-page">
+    <div class="container">
+        <header class="header">
+            <h1>Binary Encoder/Decoder</h1>
+            <p>Convert text to binary and vice versa with customizable byte grouping</p>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/rot13">Rot13</a></li>
+                <li class="nav-item"><a href="/binary">Binary</a></li>
+                <li class="nav-item"><a href="/base64">Base64</a></li>
+                <li class="nav-item"><a href="/hexadecimal">Hexadecimal</a></li>
+                <li class="nav-item"><a href="/url">Url</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="two-column">
+                <!-- Encode Section -->
+                <div class="section encode-section">
+                    <h2 class="section-title">🔢 Encode to Binary</h2>
+                    <form id="01encForm">
+                        <div class="form-group">
+                            <label for="01encvalue">Enter text to encode:</label>
+                            <textarea id="01encvalue" class="input-field" placeholder="Type your text here..." rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="size">Byte grouping:</label>
+                            <select id="size" class="select-field">
+                                <option value="2">2 Byte</option>
+                                <option value="4">4 Byte</option>
+                                <option value="6">6 Byte</option>
+                                <option value="8">8 Byte</option>
+                                <option value="10">10 Byte</option>
+                                <option value="12">12 Byte</option>
+                                <option value="14">14 Byte</option>
+                                <option value="16">16 Byte</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Encode</button>
+                    </form>
+                    <div id="resultsplit" class="output-area"></div>
+                    <input type="hidden" id="enc-original">
+                    <div id="01-error" class="error-message" style="display: none;"></div>
+                </div>
+
+                <!-- Decode Section -->
+                <div class="section decode-section">
+                    <h2 class="section-title">🔓 Decode from Binary</h2>
+                    <form id="01decForm">
+                        <div class="form-group">
+                            <label for="01decvalue">Enter binary to decode:</label>
+                            <textarea id="01decvalue" class="input-field" placeholder="Paste binary string here..." rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Decode</button>
+                    </form>
+                    <div id="01dectext" class="output-area"></div>
+                    <div id="decsizeoutput" class="output-area"></div>
+                    <div id="01-error" class="error-message" style="display: none;"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        const encriginal = document.getElementById('enc-original'); 
+
+        const observer = new MutationObserver(() => {
+            splitData();
+        });
+        observer.observe(encriginal, { attributes: true, attributeFilter: ['value'] });
+
+        // size değişirse split et
+        document.getElementById('size').addEventListener('change', splitData);
+
+        function splitData() {
+            const original = encriginal.value; 
+            const size = parseInt(document.getElementById('size').value, 10);
+            if (!original || size <= 0) {
+                document.getElementById('resultsplit').innerText = original;
+                return;
+            }
+            const result = original.match(new RegExp(`.{1,${size}}`, 'g'));
+            document.getElementById('resultsplit').innerText = result.join(' ');
+        }
+    </script>
+    
+    <script src="/front.js"></script>
+</body>
+</html>

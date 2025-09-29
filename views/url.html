@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encoder/Decoder - Ravn Decoder</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>URL Encoder/Decoder</h1>
+            <p>Encode and decode URLs with proper URL encoding</p>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/rot13">Rot13</a></li>
+                <li class="nav-item"><a href="/binary">Binary</a></li>
+                <li class="nav-item"><a href="/base64">Base64</a></li>
+                <li class="nav-item"><a href="/hexadecimal">Hexadecimal</a></li>
+                <li class="nav-item"><a href="/url">Url</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="two-column">
+                <!-- Encode Section -->
+                <div class="section encode-section">
+                    <h2 class="section-title">🔗 Encode URL</h2>
+                    <form id="urlForm">
+                        <div class="form-group">
+                            <label for="urlValue">Enter URL to encode:</label>
+                            <textarea id="urlValue" class="input-field" placeholder="Type your URL here..." rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Encode</button>
+                    </form>
+                    <div id="urlencode" class="output-area"></div>
+                    <div id="url-error" class="error-message" style="display: none;"></div>
+                </div>
+
+                <!-- Decode Section -->
+                <div class="section decode-section">
+                    <h2 class="section-title">🔓 Decode URL</h2>
+                    <form id="urldecForm">
+                        <div class="form-group">
+                            <label for="urldecValue">Enter encoded URL to decode:</label>
+                            <textarea id="urldecValue" class="input-field" placeholder="Paste encoded URL here..." rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Decode</button>
+                    </form>
+                    <div id="urldecoded" class="output-area"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/front.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encoder/Decoder - Ravn Decoder</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Base64 Encoder/Decoder</h1>
+            <p>Encode and decode text using Base64 encoding</p>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/rot13">Rot13</a></li>
+                <li class="nav-item"><a href="/binary">Binary</a></li>
+                <li class="nav-item"><a href="/base64">Base64</a></li>
+                <li class="nav-item"><a href="/hexadecimal">Hexadecimal</a></li>
+                <li class="nav-item"><a href="/url">Url</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="two-column">
+                <!-- Encode Section -->
+                <div class="section encode-section">
+                    <h2 class="section-title">🔒 Encode to Base64</h2>
+                    <form id="b64encForm">
+                        <div class="form-group">
+                            <label for="b64encvalue">Enter text to encode:</label>
+                            <textarea id="b64encvalue" class="input-field" placeholder="Type your text here..." rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Encode</button>
+                    </form>
+                    <div id="b64enctext" class="output-area"></div>
+                    <div id="b64-error" class="error-message" style="display: none;"></div>
+                </div>
+
+                <!-- Decode Section -->
+                <div class="section decode-section">
+                    <h2 class="section-title">🔓 Decode from Base64</h2>
+                    <form id="b64decForm">
+                        <div class="form-group">
+                            <label for="b64decvalue">Enter Base64 to decode:</label>
+                            <textarea id="b64decvalue" class="input-field" placeholder="Paste Base64 string here..." rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Decode</button>
+                    </form>
+                    <div id="b64dectext" class="output-area"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/front.js"></script>
+</body>
+</html>
+
+
